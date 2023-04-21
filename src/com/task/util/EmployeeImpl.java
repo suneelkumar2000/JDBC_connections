@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.traning.util.ConnectionUtil;
 
 public class EmployeeImpl implements Employee{
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
@@ -18,7 +17,7 @@ public class EmployeeImpl implements Employee{
 	@Override
 	public void saveEmployee() throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		Connection con = ConnectionUtil.getConnection();
+		Connection con = EmployeeImpl.getConnection();
 		String q = "insert into employee_table values(1,'kumar',7397389818,20000)";
 		PreparedStatement prepareStatement = con.prepareStatement(q);
 		int executeUpdate = prepareStatement.executeUpdate();
@@ -29,7 +28,7 @@ public class EmployeeImpl implements Employee{
 	@Override
 	public void deleteEmployee() throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		Connection con = ConnectionUtil.getConnection();
+		Connection con = EmployeeImpl.getConnection();
 		String q = "delete from employee_table where id=1";
 		PreparedStatement prepareStatement = con.prepareStatement(q);
 		int executeUpdate = prepareStatement.executeUpdate();
