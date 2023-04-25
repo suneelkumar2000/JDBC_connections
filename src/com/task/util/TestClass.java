@@ -1,6 +1,7 @@
 package com.task.util;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class TestClass {
@@ -8,6 +9,8 @@ public class TestClass {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		EmployeeImpl object = new EmployeeImpl();
+		EmployeePOJO emp= new EmployeePOJO();
+		List<EmployeePOJO>employeeList=object.employeeList();
 		Scanner sc = new Scanner(System.in);
 		int loop = 1;
 		do {
@@ -16,53 +19,47 @@ public class TestClass {
 			int option = sc.nextInt();
 			switch (option) {
 			case 1: {
-				System.out.println(object.saveEmployee() + " Inserted successfully");
-				object.employeeList();
+				System.out.print("Enter Employee Id: ");
+				emp.setId(sc.nextInt());
+				System.out.print("Enter Employee name: ");
+				emp.setName(sc.next());
+				System.out.print("Enter Department: ");
+				emp.setDepartment(sc.next());
+				System.out.print("Enter Employee salary: ");
+				emp.setSalary(sc.nextInt());
+				System.out.println(object.saveEmployee(emp) + " Inserted successfully");
 				System.out.println("\n");
 			}
 				break;
 			case 2: {
-				System.out.println("select the option" + "\n 1.To update Id" + "\n 2.To update name"
-						+ "\n 3.To update department" + "\n 4.To update salary");
+				System.out.println("select the option" + "\n 1.To update name"
+						+ "\n 2.To update department" + "\n 3.To update salary");
 				int option1 = sc.nextInt();
 				switch (option1) {
 				case 1: {
 					System.out.print("Enter Employee Id:");
-					int id = sc.nextInt();
-					System.out.print("Enter new Employee Id:");
-					int newId = sc.nextInt();
-					System.out.println(object.updateEmployeeId(id,newId) + " Updated successfully ");
-					object.employeeList();
+					emp.setId(sc.nextInt());
+					System.out.print("Enter new name:");
+					emp.setName(sc.next());
+					System.out.println(object.updateEmployeeName(emp) + " Updated successfully ");
 					System.out.println("\n");
 				}
 					break;
 				case 2: {
 					System.out.print("Enter Employee Id:");
-					int id = sc.nextInt();
-					System.out.print("Enter new name:");
-					String name = sc.next();
-					System.out.println(object.updateEmployeeName(id, name) + " Updated successfully ");
-					object.employeeList();
+					emp.setId(sc.nextInt());
+					System.out.print("Enter new department:");
+					emp.setDepartment(sc.next());
+					System.out.println(object.updateEmployeeDepartment(emp) + " Updated successfully ");
 					System.out.println("\n");
 				}
 					break;
 				case 3: {
-					System.out.print("Enter Employee Id:");
-					int id = sc.nextInt();
-					System.out.print("Enter new department:");
-					String department = sc.next();
-					System.out.println(object.updateEmployeeDepartment(id, department) + " Updated successfully ");
-					object.employeeList();
-					System.out.println("\n");
-				}
-					break;
-				case 4: {
 					System.out.print("Enter Employee Id :");
-					int id = sc.nextInt();
+					emp.setId(sc.nextInt());
 					System.out.print("Enter new salary:");
-					int salary = sc.nextInt();
-					System.out.println(object.updateEmployeeSalary(id,salary) + " Updated successfully ");
-					object.employeeList();
+					emp.setSalary(sc.nextInt());
+					System.out.println(object.updateEmployeeSalary(emp) + " Updated successfully ");
 					System.out.println("\n");
 				}
 					break;
@@ -70,8 +67,10 @@ public class TestClass {
 			}
 				break;
 			case 3: {
-				object.employeeList();
-				System.out.println(object.deleteEmployee() + " Deleted successfully");
+				System.out.println(employeeList);
+				System.out.println("\n");
+				System.out.println(object.deleteEmployee(emp) + " Deleted successfully");
+				System.out.println("\n");
 			}
 				break;
 			case 4: {
@@ -81,36 +80,36 @@ public class TestClass {
 				switch (option2) {
 				case 1: {
 					System.out.print("Enter Employee Id to find:");
-					int id = sc.nextInt();
-					object.findById(id);
+					emp.setId(sc.nextInt());
+					object.findById(emp);
 					System.out.println("\n");
 				}
 					break;
 				case 2: {
 					System.out.print("Enter Employee name to find:");
-					String name = sc.next();
-					object.findByName(name);
+					emp.setName(sc.next());
+					object.findByName(emp);
 					System.out.println("\n");
 				}
 					break;
 				case 3: {
 					System.out.print("Enter Employee department to find:");
-					String department = sc.next();
-					object.findByDepartment(department);
+					emp.setDepartment(sc.next());
+					object.findByDepartment(emp);
 					System.out.println("\n");
 				}
 					break;
 				case 4: {
 					System.out.print("Enter Employee salary to find:");
-					int salary = sc.nextInt();
-					object.findBySalary(salary);
+					emp.setSalary(sc.nextInt());
+					object.findBySalary(emp);
 					System.out.println("\n");
 				}
 					break;
 				}
 			}break;
 			case 5:{
-				object.employeeList();
+				System.out.println(employeeList);
 				System.out.println("\n");
 			}break;
 			case 6: {

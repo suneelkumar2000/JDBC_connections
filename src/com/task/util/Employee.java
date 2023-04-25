@@ -1,17 +1,17 @@
 package com.task.util;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface Employee {
-	public int saveEmployee() throws ClassNotFoundException, SQLException;
-	public int updateEmployeeId(int value1,int value2) throws ClassNotFoundException, SQLException;
-	public int updateEmployeeName(int value1, String value2) throws ClassNotFoundException, SQLException;
-	public int updateEmployeeDepartment(int value1,String value2) throws ClassNotFoundException, SQLException;
-	public int updateEmployeeSalary(int value1,int value2) throws ClassNotFoundException, SQLException;
-	public int deleteEmployee() throws ClassNotFoundException, SQLException;
-	public void employeeList() throws ClassNotFoundException, SQLException;
-	public void findById(int id)throws ClassNotFoundException, SQLException;
-	public void findByName(String name)throws ClassNotFoundException, SQLException;
-	public void findByDepartment(String department)throws ClassNotFoundException, SQLException;
-	public void findBySalary(int salary)throws ClassNotFoundException, SQLException;
+	public int saveEmployee(EmployeePOJO employee) throws ClassNotFoundException, SQLException;
+	public int updateEmployeeName(EmployeePOJO employee) throws ClassNotFoundException, SQLException;
+	public int updateEmployeeDepartment(EmployeePOJO employee) throws ClassNotFoundException, SQLException;
+	public int updateEmployeeSalary(EmployeePOJO employee) throws ClassNotFoundException, SQLException;
+	public int deleteEmployee(EmployeePOJO employee) throws ClassNotFoundException, SQLException;
+	public List<EmployeePOJO> employeeList() throws ClassNotFoundException, SQLException;
+	public void findById(EmployeePOJO employee)throws ClassNotFoundException, SQLException;
+	public void findByName(EmployeePOJO employee)throws ClassNotFoundException, SQLException;
+	public void findByDepartment(EmployeePOJO employee)throws ClassNotFoundException, SQLException;
+	public void findBySalary(EmployeePOJO employee)throws ClassNotFoundException, SQLException;
 }
