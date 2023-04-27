@@ -30,13 +30,14 @@ public class BookImpl implements BookDAO {
 
 	@Override
 	public int updateBookRack(int ISBN,int rack) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
 		Connection con = ConnectionUtil.getConnection();
 		String update = "update book set rack_no ='"+rack+"' where ISBN='"+ISBN+"'";
 		PreparedStatement prepareStatement = con.prepareStatement(update);
 		
 		int executeUpdate = prepareStatement.executeUpdate();
 		return executeUpdate;
-		// TODO Auto-generated method stub
+		
 
 	}
 
@@ -79,6 +80,18 @@ public class BookImpl implements BookDAO {
 			System.out.println(rs.getInt(1) + "\s" + rs.getString(2) + "\s" + rs.getInt(3) + "\s" + rs.getString(4)+ "\s" + rs.getString(5));
 		}
 
+	}
+
+	@Override
+	public void bookList() throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		Connection con = ConnectionUtil.getConnection();
+		String display = "select ISBN,name,rack_no,author,edition from book";
+		PreparedStatement prepareStatement = con.prepareStatement(display);
+		ResultSet rs = prepareStatement.executeQuery();
+		while (rs.next()) {
+			System.out.println(rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getInt(3) + "\t" + rs.getString(4)+ "\t" + rs.getString(5));
+		}
 	}
 
 }

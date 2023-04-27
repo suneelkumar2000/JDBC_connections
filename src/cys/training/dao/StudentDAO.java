@@ -12,5 +12,6 @@ public interface StudentDAO {
 	public int deleteStudentDetails(int id)throws ClassNotFoundException, SQLException;
 	public void findByStudentName(String name)throws ClassNotFoundException, SQLException;
 	public void findByStudentId(int id)throws ClassNotFoundException, SQLException;
+	public void studentList()throws ClassNotFoundException, SQLException;
 
 }

@@ -10,4 +10,5 @@ public interface BookDAO {
 	public int deleteBookDetails(int ISBN)throws ClassNotFoundException, SQLException;
 	public void findByBookName(String name)throws ClassNotFoundException, SQLException;
 	public void findByBookISBN(int ISBN)throws ClassNotFoundException, SQLException;
+	public void bookList()throws ClassNotFoundException, SQLException;
 }

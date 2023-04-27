@@ -76,4 +76,16 @@ public class StudentImpl implements StudentDAO {
 
 	}
 
+	@Override
+	public void studentList() throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		Connection con = ConnectionUtil.getConnection();
+		String display = "select id,name,department,address from Student_table";
+		PreparedStatement prepareStatement = con.prepareStatement(display);
+		ResultSet rs = prepareStatement.executeQuery();
+		while (rs.next()) {
+			System.out.println(rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getString(4));
+		}
+	}
+
 }
