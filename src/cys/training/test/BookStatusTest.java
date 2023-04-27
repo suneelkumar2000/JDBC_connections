@@ -23,7 +23,7 @@ public class BookStatusTest {
 				int id = sc.nextInt();
 				if (id > 0) {
 					book.setIssueId(id);
-					System.out.print("Enter date: ");
+					System.out.print("Enter date (yyyy/mm/dd): ");
 					String date = sc.next();
 					if (date != null) {
 						book.setDate(date);
@@ -51,7 +51,7 @@ public class BookStatusTest {
 				System.out.print("Enter Book Issue ID:");
 				int issue_id = sc.nextInt();
 				if (issue_id > 0) {
-					System.out.print("Enter date:");
+					System.out.print("Enter date (yyyy/mm/dd):");
 					String date = sc.next();
 					if (date != null) {
 						System.out.println(object.updateDate(issue_id, date) + " Updated successfully ");
